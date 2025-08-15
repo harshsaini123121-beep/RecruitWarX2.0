@@ -1,0 +1,419 @@
+@@ .. @@
+                     <li class="nav-item">
+                         <a class="nav-link active" href="profile.html"><i class="fas fa-user me-1"></i>Profile</a>
+                     </li>
++                    <li class="nav-item">
++                        <a class="nav-link" href="resume.html"><i class="fas fa-file-alt me-1"></i>Resume</a>
++                    </li>
+                 </ul>
+@@ .. @@
+                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+-                            <i class="fas fa-user-circle me-1"></i>Harsh Saini
++                            <i class="fas fa-user-circle me-1"></i><span id="navUserName">Loading...</span>
+                         </a>
+@@ .. @@
+                 <div class="col-md-4 text-end">
+                     <button class="btn btn-light" id="editProfileBtn">
+                         <i class="fas fa-edit me-2"></i>Edit Profile
+                     </button>
++                    <a href="resume.html" class="btn btn-outline-primary ms-2">
++                        <i class="fas fa-file-alt me-2"></i>Edit Resume
++                    </a>
+                 </div>
+@@ .. @@
+                         <div class="mb-3">
+-                            <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 100px; height: 100px;">
++                            <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 100px; height: 100px;" id="profileAvatar">
+                                 <i class="fas fa-user fa-3x text-white"></i>
+                             </div>
+                         </div>
+-                        <h4>Harsh Saini</h4>
+-                        <p class="text-muted">Software Developer</p>
+-                        <p class="text-muted"><i class="fas fa-map-marker-alt me-1"></i>Jaipur, Rajasthan</p>
++                        <h4 id="profileName">Loading...</h4>
++                        <p class="text-muted" id="profileTitle">Job Title</p>
++                        <p class="text-muted"><i class="fas fa-map-marker-alt me-1"></i><span id="profileLocation">Location</span></p>
+                         
+                         <div class="mb-3">
+                             <div class="d-flex justify-content-between mb-2">
+                                 <span>Profile Completion</span>
+-                                <span class="text-primary fw-bold">85%</span>
++                                <span class="text-primary fw-bold" id="completionPercent">0%</span>
+                             </div>
+                             <div class="progress" style="height: 8px;">
+-                                <div class="progress-bar" role="progressbar" style="width: 85%"></div>
++                                <div class="progress-bar" role="progressbar" style="width: 0%" id="completionBar"></div>
+                             </div>
+                         </div>
+@@ .. @@
+                         <div class="d-flex justify-content-between mb-2">
+                             <span>Profile Views</span>
+-                            <strong>156</strong>
++                            <strong id="profileViews">0</strong>
+                         </div>
+                         <div class="d-flex justify-content-between mb-2">
+                             <span>Applications Sent</span>
+-                            <strong>12</strong>
++                            <strong id="applicationsSent">0</strong>
+                         </div>
+                         <div class="d-flex justify-content-between mb-2">
+                             <span>Interview Invites</span>
+-                            <strong>3</strong>
++                            <strong id="interviewInvites">0</strong>
+                         </div>
+                         <div class="d-flex justify-content-between">
+                             <span>Response Rate</span>
+-                            <strong>25%</strong>
++                            <strong id="responseRate">0%</strong>
+                         </div>
+@@ .. @@
+                             <div class="row">
+                                 <div class="col-md-6 mb-3">
+                                     <label class="form-label">First Name</label>
+-                                    <input type="text" class="form-control" value="Harsh" readonly>
++                                    <input type="text" class="form-control" id="firstName" readonly>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                     <label class="form-label">Last Name</label>
+-                                    <input type="text" class="form-control" value="Saini" readonly>
++                                    <input type="text" class="form-control" id="lastName" readonly>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="col-md-6 mb-3">
+                                     <label class="form-label">Email</label>
+-                                    <input type="email" class="form-control" value="harsh@1234.com" readonly>
++                                    <input type="email" class="form-control" id="email" readonly>
+                                 </div>
+                                 <div class="col-md-6 mb-3">
+                                     <label class="form-label">Phone</label>
+-                                    <input type="tel" class="form-control" value="+91 0000000000" readonly>
++                                    <input type="tel" class="form-control" id="phone" readonly>
+                                 </div>
+                             </div>
+                             <div class="mb-3">
+                                 <label class="form-label">Location</label>
+-                                <input type="text" class="form-control" value="Jaipur, Rajasthan" readonly>
++                                <input type="text" class="form-control" id="location" readonly>
+                             </div>
+                             <div class="mb-3">
+                                 <label class="form-label">Professional Summary</label>
+-                                <textarea class="form-control" rows="4" readonly>Experienced software developer with 5+ years in full-stack development. Passionate about creating efficient, scalable solutions using modern technologies like Java Script, Bootstrap, Java, and Python.</textarea>
++                                <textarea class="form-control" rows="4" id="bio" readonly></textarea>
+                             </div>
+                         </form>
+@@ .. @@
+                     <div class="card-body">
+-                        <div class="experience-item mb-4">
+-                            <div class="d-flex justify-content-between align-items-start">
+-                                <div>
+-                                    <h6 class="mb-1">Senior Software Developer</h6>
+-                                    <p class="text-muted mb-1">Infosys • Bengaluru, Karnataka</p>
+-                                    <p class="text-muted mb-2">Jan 2022 - Present</p>
+-                                    <p class="mb-0">Led the development of microservices architecture, enhancing system performance by approximately 40%. Mentored junior developers and worked closely with cross-functional teams to drive project delivery.</p>
+-                                </div>
+-                            </div>
+-                        </div>
+-                        <hr>
+-                        <div class="experience-item mb-4">
+-                            <div class="d-flex justify-content-between align-items-start">
+-                                <div>
+-                                    <h6 class="mb-1">Full Stack Developer</h6>
+-                                    <p class="text-muted mb-1">Tech Mahindra • Pune, Maharashtra</p>
+-                                    <p class="text-muted mb-2">Jun 2020 - Dec 2021</p>
+-                                    <p class="mb-0">Designed and maintained web applications using Java and Node.js. Implemented CI/CD pipelines, boosting deployment efficiency by around 60%.
+-(Tech Mahindra, headquartered in Pune, excels in software engineering and digital transformation across telecom, healthcare, and banking.) </p>
+-                                </div>
+-                            </div>
+-                        </div>
+-                        <hr>
+-                        <div class="experience-item">
+-                            <div class="d-flex justify-content-between align-items-start">
+-                                <div>
+-                                    <h6 class="mb-1">Junior Developer</h6>
+-                                    <p class="text-muted mb-1">Freshworks • Chennai, Tamil Nadu</p>
+-                                    <p class="text-muted mb-2">Mar 2019 - May 2020</p>
+-                                    <p class="mb-0">Built responsive web applications and coordinated with design teams to ensure user-friendly interfaces.
+-(Freshworks began in Chennai as Freshdesk and has grown into a prominent SaaS company delivering CRM and ITSM tools.)</p>
+-                                </div>
+-                            </div>
+-                        </div>
++                        <div id="experienceList">
++                            <!-- Experience items will be loaded here -->
++                        </div>
+                     </div>
+@@ .. @@
+                     <div class="card-body">
+-                        <div class="row">
+-                            <div class="col-md-6">
+-                                <h6>Programming Languages</h6>
+-                                <div class="mb-3">
+-                                    <span class="job-detail-item me-2 mb-2">JavaScript</span>
+-                                    <span class="job-detail-item me-2 mb-2">Python</span>
+-                                    <span class="job-detail-item me-2 mb-2">PhP</span>
+-                                    <span class="job-detail-item me-2 mb-2">Java</span>
+-                                </div>
+-                                
+-                                <h6>Frameworks & Libraries</h6>
+-                                <div class="mb-3">
+-                                    <span class="job-detail-item me-2 mb-2">React</span>
+-                                    <span class="job-detail-item me-2 mb-2">Node.js</span>
+-                                    <span class="job-detail-item me-2 mb-2">Express</span>
+-                                    <span class="job-detail-item me-2 mb-2">Django</span>
+-                                </div>
+-                            </div>
+-                            <div class="col-md-6">
+-                                <h6>Tools & Technologies</h6>
+-                                <div class="mb-3">
+-                                    <span class="job-detail-item me-2 mb-2">Git</span>
+-                                    <span class="job-detail-item me-2 mb-2">Docker</span>
+-                                    <span class="job-detail-item me-2 mb-2">AWS</span>
+-                                    <span class="job-detail-item me-2 mb-2">MongoDB</span>
+-                                </div>
+-                                
+-                                <h6>Databases</h6>
+-                                <div class="mb-3">
+-                                    <span class="job-detail-item me-2 mb-2">MySQL</span>
+-                                    <span class="job-detail-item me-2 mb-2">PostgreSQL</span>
+-                                    <span class="job-detail-item me-2 mb-2">Redis</span>
+-                                </div>
+-                            </div>
+-                        </div>
++                        <div id="skillsList">
++                            <!-- Skills will be loaded here -->
++                        </div>
+                     </div>
+@@ .. @@
+                     <div class="card-body">
+-                        <div class="education-item">
+-                            <h6 class="mb-1">Bachelor of Technology.</h6>
+-                            <p class="text-muted mb-1">Swami Keshvanand Institute of Technology, Management & Gramothan (SKIT)</p>
+-                            <p class="text-muted mb-2">2024 - 2028</p>
+-                            <p class="mb-0"> Relevant coursework:Artificial Intelligence, Data Structures, Algorithms, Software Engineering, Database Systems.</p>
+-                        </div>
++                        <div id="educationList">
++                            <!-- Education items will be loaded here -->
++                        </div>
+                     </div>
+@@ .. @@
+     <script src="js/main.js"></script>
+     <script>
++        let profileData = {};
++
++        document.addEventListener('DOMContentLoaded', function() {
++            loadProfileData();
++        });
++
++        async function loadProfileData() {
++            try {
++                const response = await fetch('handlers/profile_handler.php?action=get_profile');
++                const result = await response.json();
++                
++                if (result.success) {
++                    profileData = result;
++                    populateProfile(result);
++                } else {
++                    showMessage(result.message, 'error');
++                }
++            } catch (error) {
++                console.error('Error loading profile:', error);
++                showMessage('Error loading profile data', 'error');
++            }
++        }
++
++        function populateProfile(data) {
++            const user = data.user;
++            
++            // Update navigation
++            document.getElementById('navUserName').textContent = 
++                user.first_name + ' ' + user.last_name;
++            
++            // Update profile sidebar
++            document.getElementById('profileName').textContent = 
++                user.first_name + ' ' + user.last_name;
++            document.getElementById('profileLocation').textContent = user.location || 'Location not set';
++            
++            // Update completion
++            const completion = data.completion || 0;
++            document.getElementById('completionPercent').textContent = completion + '%';
++            document.getElementById('completionBar').style.width = completion + '%';
++            
++            // Update stats (mock data for now)
++            document.getElementById('profileViews').textContent = Math.floor(Math.random() * 200) + 50;
++            document.getElementById('applicationsSent').textContent = Math.floor(Math.random() * 20) + 5;
++            document.getElementById('interviewInvites').textContent = Math.floor(Math.random() * 10) + 1;
++            document.getElementById('responseRate').textContent = Math.floor(Math.random() * 50) + 20 + '%';
++            
++            // Update personal info form
++            document.getElementById('firstName').value = user.first_name || '';
++            document.getElementById('lastName').value = user.last_name || '';
++            document.getElementById('email').value = user.email || '';
++            document.getElementById('phone').value = user.phone || '';
++            document.getElementById('location').value = user.location || '';
++            document.getElementById('bio').value = user.bio || '';
++            
++            // Display experience
++            displayExperience(data.experience);
++            
++            // Display skills
++            displaySkills(data.skills);
++            
++            // Display education
++            displayEducation(data.education);
++        }
++
++        function displayExperience(experiences) {
++            const container = document.getElementById('experienceList');
++            if (experiences.length === 0) {
++                container.innerHTML = '<p class="text-muted">No work experience added yet. <a href="resume.html">Add experience</a></p>';
++                return;
++            }
++            
++            container.innerHTML = experiences.map((exp, index) => `
++                <div class="experience-item ${index < experiences.length - 1 ? 'mb-4' : ''}">
++                    <div class="d-flex justify-content-between align-items-start">
++                        <div>
++                            <h6 class="mb-1">${exp.job_title}</h6>
++                            <p class="text-muted mb-1">${exp.company} • ${exp.location || 'Location not specified'}</p>
++                            <p class="text-muted mb-2">
++                                ${formatDate(exp.start_date)} - ${exp.is_current ? 'Present' : formatDate(exp.end_date)}
++                            </p>
++                            <p class="mb-0">${exp.description || 'No description provided'}</p>
++                        </div>
++                    </div>
++                </div>
++                ${index < experiences.length - 1 ? '<hr>' : ''}
++            `).join('');
++        }
++
++        function displaySkills(skills) {
++            const container = document.getElementById('skillsList');
++            if (skills.length === 0) {
++                container.innerHTML = '<p class="text-muted">No skills added yet. <a href="resume.html">Add skills</a></p>';
++                return;
++            }
++            
++            // Group skills by category
++            const groupedSkills = skills.reduce((acc, skill) => {
++                const category = skill.category || 'Other';
++                if (!acc[category]) acc[category] = [];
++                acc[category].push(skill);
++                return acc;
++            }, {});
++            
++            container.innerHTML = `
++                <div class="row">
++                    ${Object.entries(groupedSkills).map(([category, categorySkills]) => `
++                        <div class="col-md-6">
++                            <h6>${category}</h6>
++                            <div class="mb-3">
++                                ${categorySkills.map(skill => 
++                                    `<span class="job-detail-item me-2 mb-2">${skill.skill_name}</span>`
++                                ).join('')}
++                            </div>
++                        </div>
++                    `).join('')}
++                </div>
++            `;
++        }
++
++        function displayEducation(educations) {
++            const container = document.getElementById('educationList');
++            if (educations.length === 0) {
++                container.innerHTML = '<p class="text-muted">No education added yet. <a href="resume.html">Add education</a></p>';
++                return;
++            }
++            
++            container.innerHTML = educations.map(edu => `
++                <div class="education-item">
++                    <h6 class="mb-1">${edu.degree}</h6>
++                    <p class="text-muted mb-1">${edu.institution} • ${edu.location || 'Location not specified'}</p>
++                    <p class="text-muted mb-2">
++                        ${formatDate(edu.start_date)} - ${edu.end_date ? formatDate(edu.end_date) : 'Present'}
++                    </p>
++                    <p class="mb-0">${edu.description || 'No description provided'}</p>
++                </div>
++            `).join('');
++        }
++
++        function formatDate(dateString) {
++            if (!dateString) return '';
++            const date = new Date(dateString);
++            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
++        }
++
+         // Edit profile functionality
+         document.getElementById('editProfileBtn').addEventListener('click', function() {
+-            const inputs = document.querySelectorAll('#personalInfoForm input, #personalInfoForm textarea');
++            const inputs = document.querySelectorAll('#personalInfoForm input:not([type="email"]), #personalInfoForm textarea');
+             const isEditing = this.innerHTML.includes('Edit');
+             
+             if (isEditing) {
+                 // Enable editing
+                 inputs.forEach(input => input.removeAttribute('readonly'));
+                 this.innerHTML = '<i class="fas fa-save me-2"></i>Save Changes';
+                 this.classList.remove('btn-light');
+                 this.classList.add('btn-success');
+             } else {
+                 // Save changes
+-                inputs.forEach(input => input.setAttribute('readonly', true));
+-                this.innerHTML = '<i class="fas fa-edit me-2"></i>Edit Profile';
+-                this.classList.remove('btn-success');
+-                this.classList.add('btn-light');
+-                
+-                // Show success message
+-                const portal = new RecruitmentPortal();
+-                portal.showMessage('Profile updated successfully!', 'success');
++                saveProfileChanges();
+             }
+         });
++
++        async function saveProfileChanges() {
++            const formData = new FormData();
++            formData.append('action', 'update_profile');
++            formData.append('first_name', document.getElementById('firstName').value);
++            formData.append('last_name', document.getElementById('lastName').value);
++            formData.append('email', document.getElementById('email').value);
++            formData.append('phone', document.getElementById('phone').value);
++            formData.append('location', document.getElementById('location').value);
++            formData.append('bio', document.getElementById('bio').value);
++            
++            try {
++                const response = await fetch('handlers/profile_handler.php', {
++                    method: 'POST',
++                    body: formData
++                });
++                
++                const result = await response.json();
++                if (result.success) {
++                    // Reset form to readonly
++                    const inputs = document.querySelectorAll('#personalInfoForm input:not([type="email"]), #personalInfoForm textarea');
++                    inputs.forEach(input => input.setAttribute('readonly', true));
++                    
++                    const btn = document.getElementById('editProfileBtn');
++                    btn.innerHTML = '<i class="fas fa-edit me-2"></i>Edit Profile';
++                    btn.classList.remove('btn-success');
++                    btn.classList.add('btn-light');
++                    
++                    showMessage('Profile updated successfully!', 'success');
++                    loadProfileData(); // Reload to update all sections
++                } else {
++                    showMessage(result.message, 'error');
++                }
++            } catch (error) {
++                showMessage('Error updating profile', 'error');
++            }
++        }
++
++        function showMessage(message, type) {
++            const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
++            const alertHtml = `
++                <div class="alert ${alertClass} alert-dismissible fade show position-fixed" 
++                     style="top: 20px; right: 20px; z-index: 9999; min-width: 300px;">
++                    ${message}
++                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
++                </div>
++            `;
++            document.body.insertAdjacentHTML('beforeend', alertHtml);
++        }
+     </script>

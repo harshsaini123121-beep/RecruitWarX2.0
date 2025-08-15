@@ -1,0 +1,38 @@
+@@ .. @@
+                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+-                            <i class="fas fa-user-circle me-1"></i>Harsh Saini
++                            <i class="fas fa-user-circle me-1"></i><span id="navUserName">Loading...</span>
+                         </a>
+@@ .. @@
+         // Add some interactivity to stat cards
+         document.querySelectorAll('.stat-card').forEach(card => {
+             card.addEventListener('click', function() {
+                 // Add click animation
+                 this.style.transform = 'scale(0.95)';
+                 setTimeout(() => {
+                     this.style.transform = 'translateY(-5px)';
+                 }, 150);
+             });
+         });
++
++        // Load user info
++        async function loadUserInfo() {
++            try {
++                const response = await fetch('handlers/profile_handler.php?action=get_profile');
++                const result = await response.json();
++                
++                if (result.success) {
++                    const user = result.user;
++                    document.getElementById('navUserName').textContent = 
++                        user.first_name + ' ' + user.last_name;
++                }
++            } catch (error) {
++                console.error('Error loading user info:', error);
++            }
++        }
++
++        // Load user info on page load
++        document.addEventListener('DOMContentLoaded', function() {
++            loadUserInfo();
++        });
+     </script>

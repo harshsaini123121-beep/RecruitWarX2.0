@@ -1,0 +1,43 @@
+@@ .. @@
+                     <li class="nav-item">
+                         <a class="nav-link" href="profile.html"><i class="fas fa-user me-1"></i>Profile</a>
+                     </li>
++                    <li class="nav-item">
++                        <a class="nav-link" href="resume.html"><i class="fas fa-file-alt me-1"></i>Resume</a>
++                    </li>
+                 </ul>
+@@ .. @@
+                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+-                            <i class="fas fa-user-circle me-1"></i>Harsh Saini
++                            <i class="fas fa-user-circle me-1"></i><span id="navUserName">Loading...</span>
+                         </a>
+@@ .. @@
+                 <div class="col-md-8">
+-                    <h1 class="dashboard-title">Welcome back, Harsh!</h1>
++                    <h1 class="dashboard-title">Welcome back, <span id="welcomeName">User</span>!</h1>
+                     <p class="dashboard-subtitle">Track your applications and discover new opportunities</p>
+@@ .. @@
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="js/main.js"></script>
++    <script>
++        document.addEventListener('DOMContentLoaded', function() {
++            loadUserInfo();
++        });
++
++        async function loadUserInfo() {
++            try {
++                const response = await fetch('handlers/profile_handler.php?action=get_profile');
++                const result = await response.json();
++                
++                if (result.success) {
++                    const user = result.user;
++                    document.getElementById('navUserName').textContent = 
++                        user.first_name + ' ' + user.last_name;
++                    document.getElementById('welcomeName').textContent = user.first_name;
++                }
++            } catch (error) {
++                console.error('Error loading user info:', error);
++            }
++        }
++    </script>
+ </body>
